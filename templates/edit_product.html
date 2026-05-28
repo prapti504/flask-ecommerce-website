@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Edit Product</h3>
+
+<form action="/update/{{ product['id'] }}" method="post">
+    <input name="name" value="{{ product['name'] }}" class="form-control mb-2">
+    <input name="price" value="{{ product['price'] }}" class="form-control mb-2">
+    <input name="image" value="{{ product['image'] }}" class="form-control mb-2">
+    <button class="btn btn-primary">Update</button>
+</form>
+
+{% endblock %}

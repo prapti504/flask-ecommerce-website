@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Admin Panel</h3>
+
+<form action="/add_product" method="post" class="row g-2 mb-3">
+    <div class="col">
+        <input name="name" class="form-control" placeholder="Name">
+    </div>
+    <div class="col">
+        <input name="price" class="form-control" placeholder="Price">
+    </div>
+    <div class="col">
+        <input name="image" class="form-control" placeholder="image.jpg">
+    </div>
+    <div class="col">
+        <button class="btn btn-success">Add</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+<tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Action</th>
+</tr>
+
+{% for p in products %}
+<tr>
+    <td>{{ p['name'] }}</td>
+    <td>{{ p['price'] }}</td>
+    <td>
+        <a href="/edit/{{ p['id'] }}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/delete/{{ p['id'] }}" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
